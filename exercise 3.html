@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>JS Exercise 3</h1>
+    </header>
+    <main>
+        <div>
+            <p>Enter a Number: <input type="number" id="numValue"></p>
+            <input type="button" value="Insert" id="insertV" onclick="insertV()">
+            <input type="button" value="Delete All" id="deleteV" onclick="deleteAll()">
+        </div>
+        <div>
+            <p>Numbers:</p>
+            <p id="records"></p>
+
+            <div>
+                <p style="margin: 0;">Sum: <b id="sum" style="color: blue;"></b></p>
+                <p style="margin: 0;">Highest: <b id="high" style="color: green;"></b></p>
+                <p style="margin: 0;">Lowest: <b id="low" style="color: red;"></b></p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let num=0, total=0, high=0, low, counter=0;
+
+        function insertV(){
+            num = document.getElementById("numValue").value;
+            document.getElementById("numValue").value = "";
+
+            document.getElementById("records").innerHTML += num + "<br>";
+
+            total += parseFloat(num);
+
+            if(high<num){
+                high = num;
+            }
+            if(low>num){
+                low = num;
+            }
+            if(counter==0){
+                low=num;
+                counter++;
+            }
+
+            document.getElementById("sum").innerHTML = total;
+            document.getElementById("high").innerHTML = high;
+            document.getElementById("low").innerHTML = low;
+        }
+
+        function deleteAll(){
+            num = 0, total = 0, high = 0, low = 0, counter = 0;
+            document.getElementById("records").innerHTML = "";            
+            document.getElementById("sum").innerHTML = "";
+            document.getElementById("high").innerHTML = "";
+            document.getElementById("low").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

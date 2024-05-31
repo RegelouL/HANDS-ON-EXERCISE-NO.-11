@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1{
+            display: grid;
+            grid-template-columns: 7rem auto;
+        }
+
+        .word p{
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JS Excercise 2</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="div1">
+                <div class="word">
+                    <p>First Name:</p>
+                    <p>Middle Name:</p>
+                    <p>Last Name:</p>
+                </div>
+                <div class="forms">
+                    <input type="text" id="name"> <br>
+                    <input type="text" id="middle"> <br>
+                    <input type="text" id="last"> <br>
+                    <input type="button" value="Generate Fullname" onclick="generate()">
+                    <input type="button" value="Clear Entries" onclick="clearEntries()">
+                </div>
+            </div>
+            <div class="div2">
+                <p>Full Name: <br><b id="fullName"></b></p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function generate(){
+            let name, middle, last, fullName;
+
+            name = document.getElementById("name").value;
+            middle = document.getElementById("middle").value;
+            last = document.getElementById("last").value;
+
+            fullName = name + " " + middle + " " + last;
+
+            document.getElementById("fullName").innerHTML = fullName;
+        }
+
+        function clearEntries(){
+            document.getElementById("name").value = "";
+            document.getElementById("middle").value = "";
+            document.getElementById("last").value = "";
+            document.getElementById("fullName").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
